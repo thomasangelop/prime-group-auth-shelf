@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
@@ -17,9 +16,14 @@ class View extends Component {
 	}
 
   render() {
+		const {items} = this.props
 		return (
 			<div>
-				{JSON.stringify(this.props.items)}
+				<ul>
+					{items.map(item =>
+					<li key={item.id}>{item.description}<img alt={item.description} width="100" src={item.image_url}/></li>)}
+				</ul>
+				
 			</div>
 		)
 	}
