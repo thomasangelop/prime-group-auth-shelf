@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-    // console.log('newItem', req.body.newItem);
-    const newItem = req.body;
+    console.log('newItem', req.body.newItem);
+    const newItem = req.body.newItem;
     const sqlText = `INSERT INTO item (description, image_url, person_id) VALUES 
   ($1, $2, $3)`;
-    pool.query(sqlText, [newItem.description, newItem.image_url])
+    pool.query(sqlText, [newItem.description, newItem.image_url, newItem.person_id])
         .then((response) => {
             console.log(`Added this item to the database:`, newItem);
             res.sendStatus(201);

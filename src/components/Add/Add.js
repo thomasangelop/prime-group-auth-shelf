@@ -2,16 +2,26 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
+const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
 
 
 const emptyItem = {
     description: '',
-    image_url: ''
+    image_url: '',
+    person_id: 0
   }
   
   class Add extends Component {
   
     state = emptyItem
+
+    componentDidMount = () => {
+        this.setState({
+            ...this.state,
+            person_id: this.props.reduxState.user.id
+          })
+    }
+    person = this.props.reduxState.user.id;
   
     onSubmit = ( event ) => {
       event.preventDefault();
@@ -43,6 +53,9 @@ const emptyItem = {
   
     render() {
       return (
+          <div>
+            {/* <p>{JSON.stringify(this.state)}</p>
+            <p>{JSON.stringify(this.props.reduxState.user.id)}</p> */}
             <form onSubmit={this.onSubmit}>
               <label>Description:</label>
               <input onChange={this.handleNameChange} value={this.state.description} name="description"/>
@@ -52,10 +65,10 @@ const emptyItem = {
               <br />
               <button type="submit">Add Item to Shelf</button>
             </form>
+        </div>
       );
     }
   }
   
-  
-  export default connect()(Add);
+  export default connect(mapReduxStateToProps)(Add);
   
