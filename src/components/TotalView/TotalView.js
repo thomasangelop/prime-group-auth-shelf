@@ -6,7 +6,20 @@ class TotalView extends Component{
     render() {
         return(
             <div>
-                <h2>TotalView Page</h2>
+                <div>
+                    <h2>Total View Page</h2>
+                </div>
+                <thead>
+                    <tr><th>USER</th><th>CONTRIBUTIONS</th></tr>
+                </thead>
+                <tbody>
+                    {this.props.reduxState.totalViewReducer.map(contributionCount => (
+                        <tr key={contributionCount.username}>
+                            <td>{this.props.contributionCount.username}</td>
+                            <td>{this.props.contributionCount.count}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </div>
         )
     }
