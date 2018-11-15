@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const emptyItem = {
     description: '',
-    url: ''
+    image_url: ''
   }
   
   class Add extends Component {
@@ -48,7 +48,7 @@ const emptyItem = {
               <input onChange={this.handleNameChange} value={this.state.description} name="description"/>
               <br />
               <label>Image URL: (full link from the internet only)</label>
-              <input onChange={this.handleNameChange} value={this.state.url} name="url"/>
+              <input onChange={this.handleNameChange} value={this.state.url} name="image_url"/>
               <br />
               <button type="submit">Add Item to Shelf</button>
             </form>

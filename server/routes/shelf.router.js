@@ -15,16 +15,16 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     // console.log('newItem', req.body.newItem);
-    const employee = req.body;
-    const sqlText = `INSERT INTO employees (firstName, lastName, jobTitle, annualSalary) VALUES 
-  ($1, $2, $3, $4)`;
-    pool.query(sqlText, [employee.firstName, employee.lastName, employee.jobTitle, employee.annualSalary])
-        .then((result) => {
-            console.log(`Added to the database`, employee);
+    const newItem = req.body;
+    const sqlText = `INSERT INTO item (description, image_url, person_id) VALUES 
+  ($1, $2, $3)`;
+    pool.query(sqlText, [newItem.description, newItem.image_url])
+        .then((response) => {
+            console.log(`Added this item to the database:`, newItem);
             res.sendStatus(201);
         })
         .catch((error) => {
-            console.log(`Error making database query ${sqlText}`, error);
+            console.log(`Error making database query ${sqlText}:`, error);
             res.sendStatus(500); // Good server always responds
         })
 });
