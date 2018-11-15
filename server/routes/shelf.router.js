@@ -14,7 +14,19 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-
+    // console.log('newItem', req.body.newItem);
+    const employee = req.body;
+    const sqlText = `INSERT INTO employees (firstName, lastName, jobTitle, annualSalary) VALUES 
+  ($1, $2, $3, $4)`;
+    pool.query(sqlText, [employee.firstName, employee.lastName, employee.jobTitle, employee.annualSalary])
+        .then((result) => {
+            console.log(`Added to the database`, employee);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); // Good server always responds
+        })
 });
 
 
