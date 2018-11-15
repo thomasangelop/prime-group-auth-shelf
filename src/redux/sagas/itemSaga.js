@@ -11,8 +11,19 @@ function* fetchItems() {
   }
 }
 
+function* deleteItem(action) {
+  try {
+    yield call( axios.delete, `/api/shelf/${action.payload}`)
+    yield put( { type: 'FETCH_ITEMS' } );
+}
+catch (error) {
+    alert('error deleting item from database', error);
+  }
+}
+
 function* itemSaga() {
   yield takeEvery('FETCH_ITEMS', fetchItems);
+  yield takeEvery('DELETE_ITEM', deleteItem);
 }
 
 export default itemSaga;
