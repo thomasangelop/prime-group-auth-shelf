@@ -15,13 +15,23 @@ class View extends Component {
 		this.getItems();
 	}
 
+	deleteItem = (id) => {
+		if (window.confirm('Delete this item from the shelf?')) {
+			this.props.dispatch( { type: 'DELETE_ITEM', payload: id } )
+		  }
+	}
+
   render() {
 		const {items} = this.props
 		return (
 			<div>
 				<ul>
 					{items.map(item =>
-					<li key={item.id}>{item.description}<img alt={item.description} width="100" src={item.image_url}/></li>)}
+					<li key={item.id}>
+						{item.description}
+						<img alt={item.description} width="100" src={item.image_url}/>
+						<button onClick={() => {this.deleteItem(item.id)}}>Delete</button>
+					</li>)}
 				</ul>
 				
 			</div>
