@@ -61,7 +61,7 @@ const emptyItem = {
               <input onChange={this.handleNameChange} value={this.state.description} name="description"/>
               <br />
               <label>Image URL: (full link from the internet only)</label>
-              <input onChange={this.handleNameChange} value={this.state.url} name="image_url"/>
+              <input onChange={this.handleNameChange} value={this.state.image_url} name="image_url"/>
               <br />
               <button type="submit">Add Item to Shelf</button>
             </form>
