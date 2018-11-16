@@ -17,8 +17,9 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import TotalView from '../TotalView/TotalView';
-// import View from '../View/View';
-// import Add from '../Add/Add';
+import View from '../View/View';
+import Add from '../Add/Add';
+
 
 import './App.css';
 
@@ -65,17 +66,17 @@ class App extends Component {
               component={TotalView}
             />
             {/* This is the ProtectedRoute to /view, user will be taken to the home page if they arn't logged in */}
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact
               parth="/view"
               component={View}
-            /> */}
+            />
             {/* This is the ProtectedRoute to /add, user will be re-directed to the home page */}
-            {/* <ProtectedRoute
+            <ProtectedRoute
               exact
               parth="/add"
               component={Add}
-            /> */}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
