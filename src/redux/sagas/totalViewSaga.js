@@ -5,7 +5,7 @@ function* totalViewSaga(action){
     console.log('inside total view saga')
     try{
         let response = yield call(axios.get, '/api/shelf/count');
-        yield put({type: 'GET_COUNT', payload: response.rows.data});
+        yield put({type: 'GET_COUNT', payload: response.data});
     }
     catch(error){
         console.log('error in our totalViewSaga', error);

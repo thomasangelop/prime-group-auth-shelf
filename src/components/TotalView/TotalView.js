@@ -18,7 +18,7 @@ class TotalView extends Component{
                 <div>
                     <h2>Total View Page</h2>
                 </div>
-                {JSON.stringify(this.props.reduxState.totalViewReducer)}
+                {/* {JSON.stringify(this.props.reduxState.totalViewReducer)} */}
                 <table>
                     <thead>
                         <tr><th>USER</th><th>CONTRIBUTIONS</th></tr>
@@ -26,8 +26,8 @@ class TotalView extends Component{
                     <tbody>
                         {this.props.reduxState.totalViewReducer.map(contributionCount => (
                             <tr key={contributionCount.username}>
-                                <td>{this.props.contributionCount.username}</td>
-                                <td>{this.props.contributionCount.count}</td>
+                                <td>{contributionCount.username}</td>
+                                <td>{contributionCount.count}</td>
                             </tr>
                         ))}
                     </tbody>
