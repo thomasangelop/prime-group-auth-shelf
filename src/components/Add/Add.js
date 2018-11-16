@@ -8,7 +8,7 @@ const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
 const emptyItem = {
     description: '',
     image_url: '',
-    person_id: 0
+    // person_id: 0
   }
   
   class Add extends Component {
