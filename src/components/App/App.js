@@ -62,19 +62,19 @@ class App extends Component {
             {/* This is ProtectedRoute to /total user will be re-directed to /home if they are not logged in. */}
             <ProtectedRoute
               exact
-              parth="/total"
+              path="/total"
               component={TotalView}
             />
             {/* This is the ProtectedRoute to /view, user will be taken to the home page if they arn't logged in */}
             <ProtectedRoute
               exact
-              parth="/view"
+              path="/view"
               component={View}
             />
             {/* This is the ProtectedRoute to /add, user will be re-directed to the home page */}
             <ProtectedRoute
               exact
-              parth="/add"
+              path="/add"
               component={Add}
             />
             {/* If none of the other routes matched, we will show a 404. */}
